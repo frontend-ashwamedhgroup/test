@@ -27,7 +27,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'web-production-d44ce.up.railway.app',
-    'localhost'
+    'localhost',
+    '127.0.0.1:8000',
     ]
 
 
