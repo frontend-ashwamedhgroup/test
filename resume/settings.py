@@ -7,7 +7,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'your-secret-key'  # Change this to a secure key in production
-DEBUG = False  # Set True for local development
+DEBUG = False  # Must be False in production
 ALLOWED_HOSTS = ['web-production-d44ce.up.railway.app', 'localhost', '127.0.0.1']
 
 # ---------------------------
@@ -45,7 +45,7 @@ ROOT_URLCONF = 'resume.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'website' / 'templates'],  # Your templates folder
+        'DIRS': [BASE_DIR / 'website' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -61,7 +61,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'resume.wsgi.application'
 
 # ---------------------------
-# DATABASE (SQLite)
+# DATABASE
 # ---------------------------
 DATABASES = {
     'default': {
@@ -74,18 +74,10 @@ DATABASES = {
 # PASSWORD VALIDATION
 # ---------------------------
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 # ---------------------------
@@ -101,8 +93,8 @@ USE_TZ = True
 # STATIC FILES
 # ---------------------------
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]        # Where your dev static files live
-STATIC_ROOT = BASE_DIR / "staticfiles"         # Where collectstatic copies files for production
+STATICFILES_DIRS = [BASE_DIR / "static"]        # Development static files
+STATIC_ROOT = BASE_DIR / "staticfiles"         # Collected static files for production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # ---------------------------
