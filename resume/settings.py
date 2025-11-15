@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'your-secret-key'  # Replace with your production secret
 DEBUG = False
-ALLOWED_HOSTS = ['web-production-d44ce.up.railway.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['web-production-d44ce.up.railway.app', 'https://web-production-d44ce.up.railway.app/','localhost', '127.0.0.1']
 
 # ---------------------------
 # INSTALLED APPS
