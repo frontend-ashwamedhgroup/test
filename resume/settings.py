@@ -1,13 +1,12 @@
 from pathlib import Path
-import os
 
 # ---------------------------
 # BASE CONFIGURATION
 # ---------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'your-secret-key'  # Change this to a secure key in production
-DEBUG = False  # Must be False in production
+SECRET_KEY = 'your-secret-key'  # Replace with your production secret
+DEBUG = False
 ALLOWED_HOSTS = ['web-production-d44ce.up.railway.app', 'localhost', '127.0.0.1']
 
 # ---------------------------
@@ -20,7 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'website',  # Your app
+    'website',
 ]
 
 # ---------------------------
@@ -28,7 +27,7 @@ INSTALLED_APPS = [
 # ---------------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Serve static files in production
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Serve static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -94,16 +93,17 @@ USE_TZ = True
 # ---------------------------
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]        # Development static files
-STATIC_ROOT = BASE_DIR / "staticfiles"         # Collected static files for production
+STATIC_ROOT = BASE_DIR / "staticfiles"         # Production collectstatic folder
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # ---------------------------
-# MEDIA FILES (Optional)
+# MEDIA FILES
 # ---------------------------
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # ---------------------------
-# DEFAULT PRIMARY KEY FIELD TYPE
+# DEFAULT PRIMARY KEY
 # ---------------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

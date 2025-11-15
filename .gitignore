@@ -9,7 +9,7 @@ venv/
 # Django
 *.sqlite3
 db.sqlite3
-/staticfiles/
+# /staticfiles/   <-- removed so it will be tracked
 /media/
 
 # VS Code
